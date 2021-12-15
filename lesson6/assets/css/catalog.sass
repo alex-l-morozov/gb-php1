@@ -1,0 +1,237 @@
+@import "main"
+
+.form-check-input:checked
+  background-color: #ef5b70
+  border-color: #ef5b70
+
+.form-range
+  appearance: auto
+
+.page-item .page-link
+  background-color: #ffffff
+  border: 1px solid #ebebeb
+  border-radius: 3px
+  font-size: 16px
+  line-height: 26px
+  font-weight: 700
+  color: #c4c4c4
+
+.page-item.active .page-link
+  background: none
+  border: 1px solid #ebebeb
+  border-radius: 3px
+  color: #ef5b70
+
+.catalog__filter-range-left
+  text-align: left
+  font-size: 14px
+  line-height: 26px
+  font-weight: 400
+  color: #6f6e6e
+
+.catalog__filter-range-right
+  text-align: right
+  font-size: 14px
+  line-height: 26px
+  font-weight: 400
+  color: #6f6e6e
+
+.block__page-catalog
+  margin-top: 80px
+
+.catalog__dropdown-block
+  background-color: #f3f3f3
+
+.catalog__filter-heading
+  font-size: 14px
+  line-height: 20px
+  font-weight: 700
+  text-transform: uppercase
+  color: #6f6e6e
+
+.catalog__filter-link__block
+  font-size: 14px
+  line-height: 26px
+  font-weight: 400
+  color: #dfdfdf
+  width: 150px
+
+.catalog__filter-link
+  font-size: 14px
+  line-height: 26px
+  font-weight: 400
+  color: #6f6e6e
+  text-decoration: none
+  &:hover
+    color: #dfdfdf
+
+.catalog__filter-label
+  font-size: 14px
+  line-height: 20px
+  font-weight: 400
+  text-transform: uppercase
+  color: #6f6e6e
+  padding-left: 2px
+
+.catalog__dropdown-sort, .catalog__dropdown-by
+  margin: 10px 0 10px 10px
+  display: block
+  float: left
+  background-color: #ffffff
+  border: 1px solid #ebebeb
+  font-size: 14px
+  line-height: 26px
+  font-weight: 400
+  color: #6f6e6e
+  padding: 6px 20px
+
+.catalog__dropdown-sort__select, .catalog__dropdown-by__select
+  margin: 10px 0
+  border: 1px solid #ebebeb
+  border-radius: 0
+  float: left
+  font-size: 14px
+  line-height: 26px
+  font-weight: 400
+  color: #6f6e6e
+  width: 100px
+
+.catalog__dropdown-by__select
+  width: 60px
+
+.accordion-button
+  border: none
+  border-left: solid 6px #ef5b70
+  margin-bottom: 10px
+  background-color: #ffffff
+  font-size: 14px
+  line-height: 20px
+  font-weight: 700
+  text-transform: uppercase
+  color: #6f6e6e
+  &:not(.collapsed)
+    border: none
+    border-left: solid 6px #ef5b70
+    background-color: #ffffff
+    color: #ef5b70
+    box-shadow: none
+    &::after
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e")
+  &:focus
+    border: none
+    border-left: solid 6px #ef5b70
+    background-color: #ffffff
+    color: #ef5b70
+    outline: none
+    box-shadow: none
+
+.accordion-item
+  border: none
+
+.menu__left-brand
+  list-style: none
+
+.menu__left-brand__item
+  margin-top: 5px
+  width: 100%
+
+.menu__left-brand__link
+  display: block
+  text-decoration: none
+  font-size: 14px
+  line-height: 33px
+  font-weight: 400
+  color: #6f6e6e
+  &:hover
+    color: #ef5b70
+
+.main__box-shop__block-products_list
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+  margin-top: 40px
+
+.block-product__item
+  position: relative
+  width: 262px
+  margin-bottom: 32px
+
+.block-product__item-link
+  text-decoration: none
+
+.block-product__item:hover .block-product__item-card-add
+  display: flex
+
+.block-product__item:hover
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.16)
+
+.block-product__item-img
+  width: 100%
+
+.block-product__item:hover .block-product__item-img
+  filter: brightness(50%)
+
+.block-product__item-heading
+  color: #222222
+  margin-top: 20px
+  margin-left: 20px
+  font-size: 13px
+  text-transform: uppercase
+
+.block-product__item-price
+  margin-top: 17px
+  margin-left: 20px
+  margin-bottom: 17px
+  color: #f16d7f
+  font-size: 16px
+  font-weight: 700
+
+.block-product__item-card-add
+  position: absolute
+  top: 98px
+  display: none
+  justify-content: center
+  width: 100%
+
+.item-card-add__link
+  border: 1px solid #ffffff
+  padding: 8px 12px
+  color: #ffffff
+  font-size: 13px
+  font-weight: 700
+  text-decoration: none
+  display: flex
+  align-items: center
+
+.item-card-add__link:hover
+  box-shadow: 0 0 10px #fff
+  color: #ffffff
+
+.item-card-add__img
+  margin-right: 7px
+
+.block-product__button-block
+  text-align: center
+  clear: both
+
+.catalog__view-all__block
+  text-align: right
+
+.catalog__view-all
+  float: right
+  display: block
+  width: 150px
+  height: 44px
+  background-color: #ffffff
+  border: 1px solid #ef5b70
+  border-radius: 3px
+  font-size: 16px
+  line-height: 26px
+  font-weight: 700
+  color: #ef5b70
+  text-align: center
+  padding-top: 7px
+  text-decoration: none
+  &:hover
+    border: 1px solid #6f6e6e
+    color: #6f6e6e
