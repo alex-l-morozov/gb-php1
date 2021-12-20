@@ -1,0 +1,202 @@
+@import "main"
+
+.block-product
+  height: 777px
+  border: 1px solid #eaeaea
+  background-color: #f7f7f7
+
+.block-product__container
+  text-align: center
+  .carousel-control-prev
+    margin-top: 360px
+    width: 47px
+    height: 47px
+    background-color: rgba(42,42,42,0.14)
+  .carousel-control-next
+    margin-top: 360px
+    width: 47px
+    height: 47px
+    background-color: rgba(42,42,42,0.14)
+
+.block-product__detail
+  border: 1px solid #eaeaea
+  background-color: #ffffff
+  text-align: center
+  margin-top: -50px
+  .block-product__detail-line
+    margin: 0 auto
+    width: 147px
+    height: 1px
+    background-color: #eaeaea
+    border: 1px solid #eaeaea
+    .block-product__detail-line-pink
+      margin: 0 auto
+      width: 63px
+      height: 1px
+      border: 1px solid #ef5b70
+      background-color: #ef5b70
+  .block-product__detail-collection
+    margin-top: 76px
+    font-size: 14px
+    line-height: 24px
+    font-weight: 700
+    color: #f16d7f
+  .block-product__detail-name
+    margin-top: 17px
+    font-size: 18px
+    line-height: 24px
+    font-weight: 900
+    text-transform: uppercase
+    color: #4d4d4d
+  .block-product__detail-text
+    margin: 67px auto 0
+    width: 600px
+    font-size: 14px
+    line-height: 24px
+    font-weight: 300
+    color: #5e5e5e
+  .block-product__detail-property-left
+    text-align: right
+    font-size: 14px
+    line-height: 24px
+    font-weight: 700
+    color: #b9b9b9
+  .col-6
+    margin-top: 28px
+  .block-product__detail-property-right
+    text-align: left
+    font-size: 14px
+    line-height: 24px
+    font-weight: 700
+    color: #b9b9b9
+  .block-product__detail-property-val
+    font-size: 14px
+    line-height: 24px
+    font-weight: 700
+    color: #2f2f2f
+  .block-product__detail-price
+    margin-top: 37px
+    font-size: 24px
+    line-height: 24px
+    font-weight: 700
+    color: #ef5b70
+  .block-product__detail-line-long
+    margin: 43px auto 0
+    width: 642px
+    height: 1px
+    background-color: #ef5b70
+    border: 1px solid #eaeaea
+  .block-product__detail-property-block
+    margin: 74px auto 0
+    width: 538px
+    .block-product__detail-property-name
+      font-size: 14px
+      line-height: 24px
+      font-weight: 700
+      color: #2f2f2f
+  .block-product__detail-property-form
+    margin: 16px auto 0
+    width: 538px
+  .block-product__detail-cart
+    margin: 28px auto 122px
+    padding-top: 20px
+    display: block
+    font-size: 16px
+    line-height: 1.2
+    font-weight: 700
+    color: #ef5b70
+    width: 537px
+    height: 55px
+    background-color: #ffffff
+    border: 1px solid #ef5b70
+    text-decoration: none
+    .block-product__detail-cart-img
+      margin-right: 20px
+    &:hover
+      box-shadow: 0 0 10px #ef5b70
+      color: #ef5b70
+
+.main__box-shop__block-products
+  margin-top: 100px
+
+.block-products__heading
+  font-size: 30px
+  font-weight: 700
+  font-style: normal
+  letter-spacing: normal
+  line-height: 54px
+  text-align: center
+  text-transform: uppercase
+
+.block-products__text
+  color: #9f9f9f
+  font-size: 14px
+  font-weight: 400
+  text-align: center
+  letter-spacing: 0.35px
+  padding-bottom: 20px
+
+.main__box-shop__block-products_list
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+  margin-top: 40px
+
+.block-product__item
+  position: relative
+  width: 262px
+  margin-bottom: 32px
+
+.block-product__item-link
+  text-decoration: none
+
+.block-product__item:hover .block-product__item-card-add
+  display: flex
+
+.block-product__item:hover
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.16)
+
+.block-product__item-img
+  width: 100%
+
+.block-product__item:hover .block-product__item-img
+  filter: brightness(50%)
+
+.block-product__item-heading
+  color: #222222
+  margin-top: 20px
+  margin-left: 20px
+  font-size: 13px
+  text-transform: uppercase
+
+.block-product__item-price
+  margin-top: 17px
+  margin-left: 20px
+  margin-bottom: 17px
+  color: #f16d7f
+  font-size: 16px
+  font-weight: 700
+
+.block-product__item-card-add
+  position: absolute
+  top: 98px
+  display: none
+  justify-content: center
+  width: 100%
+
+.item-card-add__link
+  border: 1px solid #ffffff
+  padding: 8px 12px
+  color: #ffffff
+  font-size: 13px
+  font-weight: 700
+  text-decoration: none
+  display: flex
+  align-items: center
+
+.item-card-add__link:hover
+  box-shadow: 0 0 10px #fff
+  color: #ffffff
+
+.item-card-add__img
+  margin-right: 7px

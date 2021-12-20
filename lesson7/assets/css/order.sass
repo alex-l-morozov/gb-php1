@@ -1,0 +1,95 @@
+@import "main"
+
+.block__order
+  margin-top: 80px
+
+.accordion-button
+  font-size: 16px
+  line-height: 1.2
+  font-weight: 700
+  text-transform: uppercase
+  color: #222222
+  &:after
+    background-image: none
+
+.accordion-button:not(.collapsed)
+  background-color: #ffffff
+  color: #222222
+  box-shadow: none
+  &:after
+    background-image: none
+
+.accordion-button:focus
+  background-color: #ffffff
+  color: #222222
+
+.accordion-item
+  border: none
+  border-top: solid 1px #e8e8e8
+  border-bottom: solid 1px #e8e8e8
+  &:first-child
+    border-top: none
+
+.form__order
+  display: flex
+  justify-content: space-between
+  .mt-20
+    margin-top: 20px
+  .ml-30
+    margin-left: 30px
+  .mr-150
+    margin-right: 150px
+  .red
+    color: #ff0d0d
+  .btn-primary
+    margin-top: 10px
+    padding: 16px 55px
+    width: auto
+    background-color: #ffffff
+    border: 1px solid #eaeaea
+    font-size: 11px
+    line-height: 1.2
+    font-weight: 700
+    text-transform: uppercase
+    color: #4a4a4a
+    &:hover
+      border: solid 1px #eaeaea
+      background-color: #eaeaea
+  .form-check-input:checked
+    background-color: #4a4a4a
+    border-color: #4a4a4a
+  .form-control
+    width: 390px
+    height: 45px
+    background-color: #ffffff
+    border: 1px solid #eaeaea
+  .form-label
+    font-size: 12px
+    line-height: 1.2
+    font-weight: 400
+    text-transform: uppercase
+    color: #222222
+    span
+      color: #ff0d0d
+  .forgot
+    font-size: 14px
+    line-height: 20px
+    font-weight: 400
+    color: #222222
+    text-decoration: none
+    margin-left: 50px
+    &:hover
+      text-decoration: underline
+
+.form__order-heading
+  font-size: 13px
+  line-height: 1.2
+  font-weight: 400
+  text-transform: uppercase
+  color: #222222
+
+.form__order-text
+  font-size: 13px
+  line-height: 20px
+  font-weight: 400
+  color: #b3b2b2

@@ -1,0 +1,21 @@
+ol, ul {
+  padding-left: 0;
+}
+
+.account__button-arrow {
+  padding-left: 0;
+}
+
+.search__form-browse {
+  font-size: 13px;
+}
+
+.search__form-submit {
+  height: 38px;
+}
+
+.header__box-account__box {
+  padding-top: 15px;
+}
+
+/*# sourceMappingURL=custom.css.map */
