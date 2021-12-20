@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost
--- Время создания: Дек 15 2021 г., 18:38
+-- Время создания: Дек 20 2021 г., 20:33
 -- Версия сервера: 8.0.27-0ubuntu0.20.04.1
 -- Версия PHP: 7.4.3
 
@@ -21,6 +21,27 @@ SET time_zone = "+00:00";
 --
 -- База данных: `almdev_db_gb`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `cart`
+--
+
+CREATE TABLE `cart` (
+  `id` int NOT NULL,
+  `user_id` int NOT NULL DEFAULT '0',
+  `session_id` varchar(48) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `product_id` int NOT NULL,
+  `count` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Дамп данных таблицы `cart`
+--
+
+INSERT INTO `cart` (`id`, `user_id`, `session_id`, `product_id`, `count`) VALUES
+(4, 0, '48pvhoucjf2fts4mq7jtsa99vu', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -98,9 +119,38 @@ CREATE TABLE `reviews` (
 INSERT INTO `reviews` (`id`, `date`, `name`, `email`, `description`, `active`) VALUES
 (1, '2021-12-15', 'Name', 'morozovkrd@gmail.com', '', 'Y');
 
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `users`
+--
+
+CREATE TABLE `users` (
+  `id` int NOT NULL,
+  `name` varchar(25) NOT NULL,
+  `last_name` varchar(25) NOT NULL,
+  `login` varchar(25) NOT NULL,
+  `password` varchar(16) NOT NULL,
+  `email` varchar(25) NOT NULL,
+  `active` char(1) NOT NULL DEFAULT 'Y'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Дамп данных таблицы `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `last_name`, `login`, `password`, `email`, `active`) VALUES
+(1, 'Alexander', 'Morozov', 'morozov', 'qweRTY123~', 'morozovkrd@gmail.com', 'Y');
+
 --
 -- Индексы сохранённых таблиц
 --
+
+--
+-- Индексы таблицы `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Индексы таблицы `gallery`
@@ -121,8 +171,20 @@ ALTER TABLE `reviews`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT для сохранённых таблиц
 --
+
+--
+-- AUTO_INCREMENT для таблицы `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `gallery`
@@ -141,6 +203,12 @@ ALTER TABLE `products`
 --
 ALTER TABLE `reviews`
   MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT для таблицы `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
