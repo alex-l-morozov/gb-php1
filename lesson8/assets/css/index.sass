@@ -1,0 +1,262 @@
+@import "main"
+
+.header__box-banner
+  background-color: #e8e8e8
+
+.header__box-banner__block
+  height: 613px
+  background: url("../images/banner.png")
+
+.header__box-banner__block-text
+  margin-top: 224px
+  border-left: 12px solid #f16d7f
+  float: left
+  padding-left: 12px
+
+.banner__text-heading
+  padding-left: 12px
+  font-weight: 900
+  font-size: 60px
+  letter-spacing: 1.5px
+  text-transform: uppercase
+
+.banner__text-desc
+  padding-left: 12px
+  font-weight: 900
+  font-size: 40px
+  letter-spacing: 1px
+
+.banner__text-desc_pink
+  color: #f16d7f
+
+.main__box-shop__category
+  margin-top: 98px
+  display: flex
+  justify-content: space-between
+
+.main__box-shop__category_block-right
+  margin-left: 20px
+
+.shop__category-block
+  display: block
+  position: relative
+  &:hover
+    box-shadow: #f16d7f 0 0 15px
+    .shop__category-block-text
+      background-color: #f16d7f
+    .category__text-desc
+      color: #ffffff
+
+.shop__category-block__1
+  width: 560px
+  height: 542px
+  background: url("../images/category_1.jpg")
+  transition: all .5s
+  &:hover
+    transform: scale(1.1) translate(-50px, -50px)
+
+.shop__category-block__2
+  margin-top: 20px
+  width: 560px
+  height: 261px
+  background: url("../images/category_2.jpg")
+  transition: all .5s
+  &:hover
+    transform: scale(1.3) translate(-100px, 50px)
+
+.shop__category-block__3
+  width: 560px
+  height: 261px
+  background: url("../images/category_3.jpg")
+  transition: all .5s
+  &:hover
+    transform: scale(1.3) translate(100px, -50px)
+
+.shop__category-block__4
+  margin-top: 20px
+  width: 560px
+  height: 542px
+  background: url("../images/category_4.jpg")
+  transition: all .5s
+  &:hover
+    transform: scale(1.1) translate(50px, 50px)
+
+.shop__category-block-text
+  position: absolute
+  top: 26px
+  background-color: #ffffff
+  padding: 16px 20px
+
+.category__text-heading
+  color: #222222
+  font-size: 18px
+  font-weight: 900
+  text-align: left
+  letter-spacing: 0.45px
+  text-transform: uppercase
+
+.category__text-desc
+  font-weight: 900
+  text-align: left
+  color: #f16d7f
+  font-size: 30px
+  letter-spacing: 0.75px
+  text-transform: uppercase
+
+.main__box-shop__block-products
+  margin-top: 100px
+
+.block-products__heading
+  font-size: 30px
+  font-weight: 700
+  font-style: normal
+  letter-spacing: normal
+  line-height: 54px
+  text-align: center
+
+.block-products__text
+  color: #9f9f9f
+  font-size: 14px
+  font-weight: 400
+  text-align: center
+  letter-spacing: 0.35px
+  padding-bottom: 20px
+
+.main__box-shop__block-products_list
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+  margin-top: 40px
+
+.block-product__item
+  position: relative
+  width: 262px
+  margin-bottom: 32px
+
+.block-product__item-link
+  text-decoration: none
+
+.block-product__item:hover .block-product__item-card-add
+  display: flex
+
+.block-product__item:hover
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.16)
+
+.block-product__item-img
+  width: 100%
+
+.block-product__item:hover .block-product__item-img
+  filter: brightness(50%)
+
+.block-product__item-heading
+  color: #222222
+  margin-top: 20px
+  margin-left: 20px
+  font-size: 13px
+  text-transform: uppercase
+
+.block-product__item-price
+  margin-top: 17px
+  margin-left: 20px
+  margin-bottom: 17px
+  color: #f16d7f
+  font-size: 16px
+  font-weight: 700
+
+.block-product__item-card-add
+  position: absolute
+  top: 98px
+  display: none
+  justify-content: center
+  width: 100%
+
+.item-card-add__link
+  border: 1px solid #ffffff
+  padding: 8px 12px
+  color: #ffffff
+  font-size: 13px
+  font-weight: 700
+  text-decoration: none
+  display: flex
+  align-items: center
+
+.item-card-add__link:hover
+  box-shadow: 0 0 10px #fff
+
+.item-card-add__img
+  margin-right: 7px
+
+.block-product__button-block
+  text-align: center
+  clear: both
+
+.block-product__button-all
+  margin-top: 80px
+  color: #ffffff
+  font-size: 16px
+  font-weight: 700
+  background-color: #f16d7f
+  padding: 14px 24px
+  letter-spacing: 0.4px
+  border: solid 1px #ffffff
+
+.block-product__button-all:hover
+  border: solid 1px #f16d7f
+  background-color: #ffffff
+  color: #f16d7f
+
+.block-product__button-arrow
+  padding-left: 9px
+
+.main__box-shop__feature
+  margin-top: 113px
+  display: flex
+  justify-content: center
+  background-color: #222224
+
+.main__box-shop__feature-img
+  width: 767px
+  height: 529px
+  background: url("../images/feature.jpg")
+
+.main__box-shop__feature-block
+  padding-left: 32px
+  padding-right: 43px
+
+.feature-block
+  margin-top: 55px
+  margin-bottom: 5px
+  display: flex
+  justify-content: space-between
+
+.feature-block__text
+  width: 229px
+  padding-left: 33px
+
+.feature-block__heading
+  color: #fbfbfb
+  font-size: 20px
+  font-weight: 700
+  letter-spacing: 0.5px
+  width: 219px
+
+.feature-block__desc
+  margin-top: 17px
+  color: #fbfbfb
+  font-size: 14px
+  font-weight: 300
+  line-height: 24px
+  text-align: left
+  letter-spacing: 0.35px
+
+.feature-block__icon
+  width: 45px
+
+.feature-block__icon1
+  background: url("../images/delivery.svg") no-repeat top center 
+
+.feature-block__icon2
+  background: url("../images/sales.svg") no-repeat top center
+
+.feature-block__icon3
+  background: url("../images/quality.svg") no-repeat top center
