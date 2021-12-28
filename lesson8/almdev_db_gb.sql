@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost
--- Время создания: Дек 20 2021 г., 20:33
+-- Время создания: Дек 28 2021 г., 13:48
 -- Версия сервера: 8.0.27-0ubuntu0.20.04.1
 -- Версия PHP: 7.4.3
 
@@ -33,15 +33,16 @@ CREATE TABLE `cart` (
   `user_id` int NOT NULL DEFAULT '0',
   `session_id` varchar(48) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `product_id` int NOT NULL,
-  `count` int NOT NULL
+  `count` int NOT NULL,
+  `order_id` int NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Дамп данных таблицы `cart`
 --
 
-INSERT INTO `cart` (`id`, `user_id`, `session_id`, `product_id`, `count`) VALUES
-(4, 0, '48pvhoucjf2fts4mq7jtsa99vu', 3, 1);
+INSERT INTO `cart` (`id`, `user_id`, `session_id`, `product_id`, `count`, `order_id`) VALUES
+(4, 0, '48pvhoucjf2fts4mq7jtsa99vu', 3, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -65,6 +66,19 @@ INSERT INTO `gallery` (`id`, `name`, `img_small`, `img_big`, `raiting`) VALUES
 (1, 'изображение 1', '/lesson5/img/1.jpg', '/lesson5/img/1.jpg', 2),
 (2, 'изображение 2', '/lesson5/img/2.jpg', '/lesson5/img/2.jpg', 3),
 (3, 'изображение 3', '/lesson5/img/3.webp', '/lesson5/img/3.webp', 6);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int NOT NULL,
+  `staus` int NOT NULL,
+  `date` datetime NOT NULL,
+  `user_id` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -127,20 +141,23 @@ INSERT INTO `reviews` (`id`, `date`, `name`, `email`, `description`, `active`) V
 
 CREATE TABLE `users` (
   `id` int NOT NULL,
-  `name` varchar(25) NOT NULL,
-  `last_name` varchar(25) NOT NULL,
+  `name` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `last_name` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `login` varchar(25) NOT NULL,
   `password` varchar(16) NOT NULL,
   `email` varchar(25) NOT NULL,
-  `active` char(1) NOT NULL DEFAULT 'Y'
+  `active` char(1) NOT NULL DEFAULT 'Y',
+  `role` char(5) NOT NULL DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Дамп данных таблицы `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `last_name`, `login`, `password`, `email`, `active`) VALUES
-(1, 'Alexander', 'Morozov', 'morozov', 'qweRTY123~', 'morozovkrd@gmail.com', 'Y');
+INSERT INTO `users` (`id`, `name`, `last_name`, `login`, `password`, `email`, `active`, `role`) VALUES
+(1, 'Alexander', 'Morozov', 'morozov', 'qweRTY123~', 'morozovkrd@gmail.com', 'Y', 'user'),
+(2, 'Admin', '', 'admin', 'qweRTY123~', 'morozovkrd@gmail.com', 'Y', 'admin'),
+(4, NULL, NULL, 'test', 'QWErty123~', 'morozovkrd@gmail.com', 'Y', 'user');
 
 --
 -- Индексы сохранённых таблиц
@@ -156,6 +173,12 @@ ALTER TABLE `cart`
 -- Индексы таблицы `gallery`
 --
 ALTER TABLE `gallery`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `orders`
+--
+ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -193,6 +216,12 @@ ALTER TABLE `gallery`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT для таблицы `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT для таблицы `products`
 --
 ALTER TABLE `products`
@@ -208,7 +237,7 @@ ALTER TABLE `reviews`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
