@@ -16,6 +16,23 @@ if ((isset($_SESSION['login']) && $_SESSION['login'] != "")
 } else {
     header("Location: ./login.php");
 }
+if (isset($_REQUEST['order']) && $_REQUEST['order'] == 'new') {
+    $sql = "SELECT * FROM cart WHERE session_id='" . session_id() . "' AND order_id=0";
+    $rsData = mysqli_query($connect, $sql);
+    $arCart = [];
+    while ($arData = mysqli_fetch_assoc($rsData)){
+        $arCart[] = $arData;
+    }
+    if(count($arCart) > 0) {
+        mysqli_query($connect, "INSERT INTO `orders` (`status`, `date`, `user_id`) VALUES (1, '" . date('Y-m-d H:i:s')  . "', {$arProfile['user']['id']})");
+        $orderId = mysqli_insert_id($connect);
+        foreach ($arCart as $item) {
+            mysqli_query($connect, "UPDATE cart SET order_id={$orderId} WHERE id=". intval($item['id']));
+        }
+
+    }
+    header("Location: ./profile.php");
+}
 include_once (__DIR__ . "/include/header.php");
 ?>
     <section class="block__page-nav">
@@ -37,6 +54,56 @@ include_once (__DIR__ . "/include/header.php");
     <section class="block__order container">
         Добрый день, <?=$arProfile['user']['name']?>!<br / >
         Ваш логин - <?=$arProfile['user']['login']?>
+
+        <h3>My orders</h3>
+        <?php
+        $sql0 = "SELECT * FROM orders WHERE user_id=" . $arProfile['user']['id'] ;
+        $rsData0 = mysqli_query($connect, $sql0);
+        while ($arData0 = mysqli_fetch_assoc($rsData0)):
+
+        ?>
+            <h3>Order #<?=$arData0['id'];?></h3>
+        <?php
+        $sql = "SELECT * FROM cart WHERE session_id='" . session_id() . "' AND order_id={$arData0['id']}";
+        $rsData = mysqli_query($connect, $sql);
+        ?>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col" class="cart__col_head cart__col_head_one">Product Details</th>
+                <th scope="col" class="cart__col_head cart__col_head_center">unite Price</th>
+                <th scope="col" class="cart__col_head cart__col_head_center">Quantity</th>
+                <th scope="col" class="cart__col_head cart__col_head_center">shipping</th>
+                <th scope="col" class="cart__col_head cart__col_head_center">Subtotal</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php
+            $total = 0;
+            while ($arData = mysqli_fetch_assoc($rsData)):
+                $sql1 = "SELECT id, name, price, img_small FROM products WHERE id=". intval($arData['product_id']);
+                $rsData1 = mysqli_query($connect, $sql1);
+                $arData1 = mysqli_fetch_assoc($rsData1);
+                ?>
+                <tr>
+                    <td class="cart__img-padding"><div class="row">
+                            <div class="col-3"><a href="./product.php?id=<?=$arData1['id']?>"><img src="./assets/images/<?=$arData1['img_small'];?>" alt="<?=$arData1['name']?>" style="width: 100px;"></a></div>
+                            <div class="col-9">
+                                <p class="cart__text-heading"><a class="cart__text-heading__link" href="./product.php?id=<?=$arData1['id']?>"><?=$arData1['name']?></a></p>
+                            </div>
+                        </div></td>
+                    <td class="cart__text-padding">$<?=$arData1['price']?></td>
+                    <td class="cart__form-padding"><?=$arData['count']?></td>
+                    <td class="cart__text-padding">FREE</td>
+                    <?php
+                    $total += $arData1['price'] * $arData['count'];
+                    ?>
+                    <td class="cart__text-padding">$<?=$arData1['price'] * $arData['count']?></td>
+                </tr>
+            <?endwhile;?>
+            </tbody>
+        </table>
+        <?endwhile;?>
     </section>
 <?
 include_once (__DIR__ . "/include/footer.php");

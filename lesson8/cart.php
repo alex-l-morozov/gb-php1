@@ -6,6 +6,8 @@ $title = "Cart";
 $page = "cart";
 
 include_once (__DIR__ . "/include/header.php");
+
+use Shop\Users;
 ?>
 <section class="block__page-nav">
     <div class="container">
@@ -69,12 +71,12 @@ include_once (__DIR__ . "/include/header.php");
         </tbody>
     </table>
     <div class="row block__cart-button">
-        <div class="col-6"><button class="btn btn-primary cart__button-white" type="button">cLEAR SHOPPING CART</button></div>
-        <div class="col-6 block__cart-button__right"><button class="btn btn-primary cart__button-white" type="button">cONTINUE sHOPPING</button></div>
+        <div class="col-6"><!--button class="btn btn-primary cart__button-white" type="button">cLEAR SHOPPING CART</button ---></div>
+        <div class="col-6 block__cart-button__right"><!-- button class="btn btn-primary cart__button-white" type="button">cONTINUE sHOPPING</button --></div>
     </div>
     <div class="row block__cart-group">
         <?php if(Users::getInstance()->isLogin()):?>
-        <div class="col-4"><p class="block__cart-group__heading">Shipping Adress</p>
+        <div class="col-4"><!--p class="block__cart-group__heading">Shipping Adress</p>
             <form>
                 <select class="form-select" aria-label="Bangladesh">
                     <option selected>Open this select menu</option>
@@ -85,22 +87,28 @@ include_once (__DIR__ . "/include/header.php");
                 <input type="text" class="form-control" placeholder="State">
                 <input type="text" class="form-control" placeholder="Postcode / Zip">
                 <button class="btn btn-primary" type="submit">get a quote</button>
-            </form>
+            </form--->
         </div>
-        <div class="col-4"><p class="block__cart-group__heading">coupon discount</p>
+        <div class="col-4"><!-- p class="block__cart-group__heading">coupon discount</p>
             <p class="block__cart-group__text">Enter your coupon code if you have one</p>
             <form>
                 <input type="text" class="form-control" placeholder="State">
                 <button class="btn btn-primary" type="submit">Apply coupon</button>
-            </form>
+            </form --->
         </div>
         <div class="col-4">
+            <?php
+            if ($total > 0):
+            ?>
             <div class="block__cart-total">
                 <p class="block__cart-sub__total">Sub total $<?=$total?></p>
                 <p class="block__cart-total__weight">GRAND TOTAL <span class="block__cart-total__pink">$<?=$total?></span></p>
                 <hr class="block__cart-total__hr">
                 <a href="./profile.php?order=new" class="btn btn-primary" type="button">ORDER</a>
             </div>
+            <?
+            endif;
+            ?>
         </div>
         <?php endif;?>
     </div>

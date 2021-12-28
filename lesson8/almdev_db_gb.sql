@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost
--- Время создания: Дек 28 2021 г., 13:48
+-- Время создания: Дек 28 2021 г., 15:06
 -- Версия сервера: 8.0.27-0ubuntu0.20.04.1
 -- Версия PHP: 7.4.3
 
@@ -42,7 +42,9 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`id`, `user_id`, `session_id`, `product_id`, `count`, `order_id`) VALUES
-(4, 0, '48pvhoucjf2fts4mq7jtsa99vu', 3, 1, 0);
+(6, 0, 'u60o5qnjh9etno3d0u1lchlb74', 6, 1, 3),
+(7, 0, 'u60o5qnjh9etno3d0u1lchlb74', 2, 1, 4),
+(8, 0, 'u60o5qnjh9etno3d0u1lchlb74', 3, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -75,10 +77,18 @@ INSERT INTO `gallery` (`id`, `name`, `img_small`, `img_big`, `raiting`) VALUES
 
 CREATE TABLE `orders` (
   `id` int NOT NULL,
-  `staus` int NOT NULL,
+  `status` int NOT NULL,
   `date` datetime NOT NULL,
   `user_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Дамп данных таблицы `orders`
+--
+
+INSERT INTO `orders` (`id`, `status`, `date`, `user_id`) VALUES
+(3, 1, '2021-12-28 14:56:14', 1),
+(4, 1, '2021-12-28 14:57:24', 1);
 
 -- --------------------------------------------------------
 
@@ -207,7 +217,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT для таблицы `gallery`
@@ -219,7 +229,7 @@ ALTER TABLE `gallery`
 -- AUTO_INCREMENT для таблицы `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `products`

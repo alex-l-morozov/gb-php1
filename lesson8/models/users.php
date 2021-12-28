@@ -125,6 +125,7 @@ class Users
             return [
                 'isSuccess' => true,
                 'user' => [
+                    'id' => $arData['id'],
                     'name' => $arData['name'],
                     'login' => $arData['login'],
                 ]
