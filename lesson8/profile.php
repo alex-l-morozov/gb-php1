@@ -55,6 +55,12 @@ include_once (__DIR__ . "/include/header.php");
         Добрый день, <?=$arProfile['user']['name']?>!<br / >
         Ваш логин - <?=$arProfile['user']['login']?>
 
+        <?php if($arProfile['user']['role'] == 'admin'):?>
+        <h2>Admin Block</h2>
+            <div><a href="./admin_order.php">Admin Order</a></div>
+            <div><a href="./admin_product.php">Admin Products</a></div>
+        <?php endif;?>
+
         <h3>My orders</h3>
         <?php
         $sql0 = "SELECT * FROM orders WHERE user_id=" . $arProfile['user']['id'] ;
@@ -64,7 +70,7 @@ include_once (__DIR__ . "/include/header.php");
         ?>
             <h3>Order #<?=$arData0['id'];?></h3>
         <?php
-        $sql = "SELECT * FROM cart WHERE session_id='" . session_id() . "' AND order_id={$arData0['id']}";
+        $sql = "SELECT * FROM cart WHERE order_id={$arData0['id']}";
         $rsData = mysqli_query($connect, $sql);
         ?>
         <table class="table">

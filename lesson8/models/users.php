@@ -61,6 +61,7 @@ class Users
             $_SESSION['id'] = $arData['id'];
             $_SESSION['login'] = $arData['login'];
             $_SESSION['password'] = $arData['password'];
+            $_SESSION['role'] = $arData['role'];
             return true;
         }
         return false;
@@ -119,7 +120,7 @@ class Users
     {
         $user['login'] = mysqli_real_escape_string($connect, $user['login']);
         $user['password'] = mysqli_real_escape_string($connect, $user['password']);
-        $sql = "SELECT id, login, name FROM users WHERE active='Y' AND login='" .$user['login'] . "' AND password='" .$user['password'] . "' LIMIT 1";
+        $sql = "SELECT id, login, name, role FROM users WHERE active='Y' AND login='" .$user['login'] . "' AND password='" .$user['password'] . "' LIMIT 1";
         $rsData = mysqli_query($connect, $sql);
         if ($arData = mysqli_fetch_assoc($rsData)) {
             return [
@@ -128,6 +129,7 @@ class Users
                     'id' => $arData['id'],
                     'name' => $arData['name'],
                     'login' => $arData['login'],
+                    'role' => $arData['role'],
                 ]
             ];
         }
