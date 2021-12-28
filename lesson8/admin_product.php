@@ -45,6 +45,34 @@ include_once (__DIR__ . "/include/header.php");
         <?php endif;?>
 
         <h3>Products</h3>
+        <div><a href="./admin_product_edit.php?id=0">Product Add</a></div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col" class="cart__col_head cart__col_head_one">Product Details</th>
+                <th scope="col" class="cart__col_head cart__col_head_center">unite Price</th>
+                <th scope="col" class="cart__col_head cart__col_head_center">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php
+            $sql = "SELECT id, name, price, img_small FROM products";
+            $rsData = mysqli_query($connect, $sql);
+            while ($arData = mysqli_fetch_assoc($rsData)):
+                ?>
+                <tr>
+                    <td class="cart__img-padding"><div class="row">
+                            <div class="col-3"><a href="./product.php?id=<?=$arData['id']?>" target="_blank"><img src="./assets/images/<?=$arData['img_small'];?>" alt="<?=$arData['name']?>" style="width: 100px;"></a></div>
+                            <div class="col-9">
+                                <p class="cart__text-heading"><a class="cart__text-heading__link" href="./product.php?id=<?=$arData['id']?>"><?=$arData['name']?></a></p>
+                            </div>
+                        </div></td>
+                    <td class="cart__text-padding">$<?=$arData['price']?></td>
+                    <td class="cart__text-padding"><a href="./admin_product_edit.php?id=<?=$arData['id']?>">Edit</a></td>
+                </tr>
+            <?endwhile;?>
+            </tbody>
+        </table>
 
     </section>
 <?

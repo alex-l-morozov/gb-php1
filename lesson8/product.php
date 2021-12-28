@@ -3,6 +3,8 @@ if (intval($_GET['id']) == 0) {
     header("Location: ./index.php");
 }
 include_once (__DIR__ . "/connect.php");
+include_once (__DIR__ . "/models/users.php");
+
 $sql = "SELECT id, name, description, price, img_big FROM products WHERE id=". intval($_GET['id']);
 $rsData = mysqli_query($connect, $sql);
 if (!($arData = mysqli_fetch_assoc($rsData))) {
